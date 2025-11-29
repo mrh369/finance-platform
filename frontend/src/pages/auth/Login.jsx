@@ -8,6 +8,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +19,8 @@ export default function Login() {
 
     } catch (err) {
       console.log("Login error:", err);
-      setMessage("Error logging in");
+      console.log("Error details:", err.response.data.errors);
+      setErrors(err.response.data.errors);
     }
   };
 
@@ -40,6 +42,7 @@ export default function Login() {
             className="login-input"
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errors && <p className="error">{errors}</p>}
           <button type="submit" className="login-button">Sign In</button>
         </form>
 

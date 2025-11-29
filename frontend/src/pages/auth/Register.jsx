@@ -8,6 +8,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
 
@@ -15,10 +16,11 @@ export default function Register() {
     e.preventDefault();
     try {
       const data = await registerUser({ username, email, password, confirmPassword });
-      setMessage(data);
+      console.log("Data from registration:", data);
+      setMessage(data.message);
     } catch (err) {
-      setMessage("Error registering user");
-      console.error(err);
+      console.error("Error:", err.response.data.errors);
+      setErrors(err.response.data.errors);
     }
     //Navigate to login page after successful registration?
   };
@@ -57,7 +59,9 @@ export default function Register() {
             className="login-input"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-
+          {message && <p className="success">{message}</p>}
+          {/* TODO: Can display success AND error message at the same time if error message first, then page wasn't reset. */}
+          {errors && <p className="error">{errors}</p>}
           <button type="submit" className="login-button">
             Create Account
           </button>

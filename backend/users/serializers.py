@@ -12,8 +12,15 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         }
 
     def validate(self, attrs):
+        # TODO: This is currently using the default User model error logic, need to fix that and/or the way displaying errors on the form.
+        if User.objects.filter(username=attrs['username']).exists():
+            raise serializers.ValidationError({"errors": "Username is already taken."})
+
+        if User.objects.filter(email=attrs['email']).exists():
+            raise serializers.ValidationError({"errors": "Email is already registered."})
+
         if attrs['password'] != attrs['confirmPassword']:
-            raise serializers.ValidationError({"password": "Password fields didn't match."})
+            raise serializers.ValidationError({"errors": "Password fields didn't match."})
         return attrs
 
     def create(self, validated_data):

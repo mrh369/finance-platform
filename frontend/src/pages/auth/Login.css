@@ -61,6 +61,26 @@
   color: #000000; /* slate-400 — lighter placeholder text */
 }
 
+/* ===== Error Message ===== */
+.error {
+  color: #dc2626; /* red-600 */
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  padding-left: 0.25rem;
+}
+
+/* ===== Success Message ===== */
+.success {
+  color: #16a34a; /* green-600 */
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  padding-left: 0.25rem;
+}
+
 /* ===== Button ===== */
 .login-button {
   background-color: #2563eb; /* blue-600 */

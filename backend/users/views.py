@@ -1,31 +1,3 @@
-# from django.shortcuts import render
-# from django.http import JsonResponse
-
-# # Create your views here.
-# def demo_home(request):
-#     return JsonResponse({"message": "Hello, this is the users app home page."})
-
-# def register(request):
-#     if request.method == "POST":
-#         # Handle user registration logic here
-#         return JsonResponse({"message": "User registered successfully."})
-#     #TODO: Eventually add some kind of email authentication to this
-#     return JsonResponse({"error": "Invalid request method."}, status=400)
-
-# def login(request):
-#     if request.method == "POST":
-#         # Handle user login logic here
-#         return JsonResponse({"message": "User logged in successfully."})
-#     return JsonResponse({"error": "Invalid request method."}, status=400)
-
-# def profile(request):
-#     # Check if logged in first? - either here or react side
-#     if request.method == "GET":
-#         # Handle fetching user profile logic here
-#         return JsonResponse({"username": "demo_user", "email": "demo_user@example.com"})
-#     return JsonResponse({"error": "Invalid request method."}, status=400)
-
-
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -52,7 +24,7 @@ class LoginView(APIView):
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
-            return Response({"message": "Invalid email or password"}, status=400)
+            return Response({"errors": "Invalid email or password"}, status=401)
 
         user = authenticate(username=user.username, password=password)
 
@@ -65,4 +37,4 @@ class LoginView(APIView):
                 "email": user.email
             })
         else:
-            return Response({"message": "Invalid email or password"}, status=400)
+            return Response({"errors": "Invalid email or password"}, status=401)
