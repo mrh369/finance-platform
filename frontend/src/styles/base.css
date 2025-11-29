@@ -1,0 +1,62 @@
+@import "./variables.css";
+
+/* ===== Base Resets ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-bg-page);
+  line-height: 1.5;
+}
+
+/* ===== Shared Base Utilities ===== */
+
+.input-base {
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-bg-muted);
+  transition: all 0.2s ease;
+}
+
+.input-base::placeholder {
+  color: var(--color-placeholder);
+}
+
+.input-base:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: var(--color-bg);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== Button Base ===== */
+.btn-base {
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: none;
+}
+
+/* ===== Common Utility Classes ===== */
+.text-error {
+  color: var(--color-error);
+}
+
+.text-muted {
+  color: var(--color-placeholder);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}

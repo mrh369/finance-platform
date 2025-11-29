@@ -1,0 +1,141 @@
+/* ===============================
+   Shared UI Styles
+   For inputs, selects, toggles, etc.
+   =============================== */
+
+/* ===== Base Controls ===== */
+.base-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;       /* light border */
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.base-control:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== Label ===== */
+.base-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #334155; /* slate-700 */
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ===== Error Text ===== */
+.base-error {
+  color: #dc2626; /* red-600 */
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+/* ===== Select Dropdown ===== */
+.base-select {
+  appearance: none;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='%2363748b' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+/* ===== Checkbox ===== */
+.checkbox-base {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #2563eb;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/* ===== Toggle Switch ===== */
+.toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle-track {
+  width: 40px;
+  height: 22px;
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 18px;
+  width: 18px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.toggle-input:checked + .toggle-track {
+  background-color: #2563eb;
+}
+
+.toggle-input:checked + .toggle-track .toggle-thumb {
+  transform: translateX(18px);
+}
+
+.toggle-label {
+  margin-left: 0.75rem;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+  background-color: #2563eb; /* blue-600 */
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
+
+.btn-secondary {
+  background-color: #e2e8f0; /* slate-200 */
+  color: #0f172a;
+}
+
+.btn-secondary:hover {
+  background-color: #cbd5e1; /* slate-300 */
+}
+
+.btn:disabled {
+  background-color: #94a3b8; /* slate-400 */
+  cursor: not-allowed;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
